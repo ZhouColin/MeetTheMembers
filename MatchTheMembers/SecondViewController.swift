@@ -94,10 +94,10 @@ class SecondViewController: UIViewController {
     }
     
     func resetButtonColors() {
-        first.backgroundColor = UIColor.systemGray2
-        second.backgroundColor = UIColor.systemGray2
-        third.backgroundColor = UIColor.systemGray2
-        fourth.backgroundColor = UIColor.systemGray2
+        first.backgroundColor = UIColor.systemYellow
+        second.backgroundColor = UIColor.systemYellow
+        third.backgroundColor = UIColor.systemYellow
+        fourth.backgroundColor = UIColor.systemYellow
     }
     
     func goNext() { //Change everything for the next round
@@ -251,7 +251,9 @@ class SecondViewController: UIViewController {
         if let destVC = segue.destination as? StatsViewController, segue.identifier == "toStats" {
             segue.destination.modalPresentationStyle = .fullScreen
             destVC.longestStreak = longestStreak1
-            destVC.text1 = resultArray[resultArray.count-1]
+            if (resultArray.count >= 1) {
+                destVC.text1 = resultArray[resultArray.count-1]
+            }
             if (resultArray.count >= 2) {
                 destVC.text2 = resultArray[resultArray.count-2]
             }
